@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,27 +10,37 @@
     <link rel="stylesheet" href="./assets/style.css">
 </head>
 <body>
-     
     <main class="container">
         <div class="container__contenido">
             <div class="container__informacion">
                 <div class="container__texto">
+                    <!-- Ensure proper heading levels -->
                     <h1>Generador<span class="container__texto-azul"> de Contraseñas</span></h1>
-                    <div class="container__campo"> 
-                        <label class="texto__parrafo">Cantidad
-                            <input class="container__input" type="number" id="cantidad" >
-                        </label>
-                        <button class="boton" onclick="generar()" id="generar" >Generar</button>
-                    </div> 
+
+                    <!-- Container for user input -->
                     <div class="container__campo">
-                        <input class="container__contrasena" type="text" id="contrasena" placeholder="contraseña">
+                        <!-- Use 'for' to link the label and input -->
+                        <label class="texto__parrafo" for="cantidad">Cantidad</label>
+                        <input class="container__input" type="number" id="cantidad" aria-label="Cantidad de caracteres de la contraseña">
+                        <!-- Accessible button -->
+                        <button class="boton" onclick="generar()" id="generar" aria-label="Generar contraseña">Generar</button>
+                        <button class="boton 2" onclick="reset()" id="reset" aria-label="Nueva contraseña">Reset</button>
                     </div>
-                </div> 
+
+                    <!-- Password output field -->
+                    <div class="container__campo">
+                        <!-- Add descriptive aria-label for the output field -->
+                        <input class="container__contrasena" type="text" id="contrasena" placeholder="Contraseña generada" aria-label="Campo de contraseña generada" readonly>
+
+                        <div class="container__campo">
+                            <span id="strength" aria-label="Fortaleza de la contraseña"></span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
- 
     </main>
-    
-    <script src="./main.js"></script> 
+
+    <script src="./main.js"></script>
 </body>
 </html>

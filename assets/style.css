@@ -1,3 +1,4 @@
+/* Global styles */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -6,19 +7,18 @@
 }
 
 body {
-    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%); 
+    background: linear-gradient(#1354A5 0%, #041832 33.33%, #041832 66.67%, #01080E 100%);
     height: 100vh;
-    display: flex; 
+    display: flex;
     align-items: center;
     justify-content: center;
-    
 }
 
 body::before {
     background-image: url("img/candado.png");
     background-repeat: no-repeat;
     background-position: right;
-    background-size: cover;
+    background-size: contain;
     content: "";
     display: block;
     position: absolute;
@@ -32,14 +32,14 @@ body::before {
     min-height: 50vh;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content:center;
     border-radius: 24px;
     border: 1px solid #1875E8;
     box-shadow: 4px 4px 20px 0px rgba(1, 8, 14, 0.15);
     background-image: url("img/Ruido.png");
     background-size: 100% 100%;
     position: relative;
-    overflow: hidden;
+    overflow:hidden;
 }
 
 .container__contenido {
@@ -47,28 +47,33 @@ body::before {
     align-items: center;
     position: relative;
     width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 .container__informacion {
     flex: 1;
     padding: 3rem;
-    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 h1 {
     font-family: 'Chakra Petch', sans-serif;
-    font-size: 72px;
+    font-size: 3rem; /* Adjust font size for responsiveness */
     font-style: normal;
     font-weight: 700;
     line-height: 100%;
     padding: 2rem;
+    align-items: center;
 }
 
 .container__texto {
     margin: 12px 0;
     display: flex;
     flex-direction: column;
-    
 }
 
 .container__texto-azul {
@@ -78,62 +83,77 @@ h1 {
 
 .container__campo {
     display: flex;
-    align-items: center;  
+    align-items: center;
     margin-bottom: 12px;
     margin: 30px;
-    gap: 2rem;  
+    gap: 2rem;
 }
 
 .texto__parrafo {
     color: #FFF;
     font-family: 'Inter';
-    font-size: 32px;
+    font-size: 1.5rem; /* Adjust font size for responsiveness */
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: 10px;  
+    margin-left: 10px;
 }
 
 .container__input {
-    width: 148px;
+    width: 100%; /* Make the input field responsive */
     height: 72px;
     border-radius: 16px;
     background-color: #FFF;
     border: none;
     color: #535353;
     padding: 2rem;
-    font-size: 24px;
+    font-size: 1rem; /* Adjust font size for responsiveness */
     font-weight: 700;
     font-family: 'Inter', sans-serif;
-    
 }
 
-.boton{
+.boton {
     color: white;
     font-size: 1.5rem;
     border: none;
     background-color: #1875E8;
     padding: 1rem 1.5rem;
     border-radius: 16px;
-    width: 243px;
+    width: 90%%; /* Make the button responsive */
     height: 72px;
     box-shadow: 0px 0px 20px 0px rgba(24, 117, 232, 0.50);
     cursor: pointer;
 }
 
 .container__contrasena {
-    width: 496px;
-    height: 72px;
+    width: 18rem; /* Make the password field responsive */
+    height: 1.5rem;
     border-radius: 16px;
     background-color: #FFF;
     border: none;
     color: #1875E8;
-    margin: 50px;
+    margin: 50px 130px;
     padding: 2rem;
-    font-size: 24px;
+    font-size: 1.5rem; /* Adjust font size for responsiveness */
     font-weight: 700;
     font-family: 'Inter', sans-serif;
 }
 
+@media (max-width: 320px) {
+    /* Adjust styles for smaller screens */
+    .container {
+        width: 90%;
+    }
 
+    h1 {
+        font-size: 2.5rem;
+    }
 
+    .texto__parrafo {
+        font-size: 1.2rem;
+    }
+
+    .container__input, .container__contrasena {
+        font-size: 1.2rem;
+    }
+}

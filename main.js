@@ -4,7 +4,10 @@ let boton = document.getElementById('generar');
 
 let contrasena = document.getElementById('contrasena');
 
-const cadenaCaracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+let strengthIndicator = document.getElementById('strength');
+
+
+const cadenaCaracteres = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()_+';
 
 function generar(){
 
@@ -26,8 +29,29 @@ function generar(){
 
     }
 
-     contrasena.value = password;
+    contrasena.value = password;
+     evaluarFortaleza(password);
+     
+}
 
+function reset() {
+    cantidad.value = '';
+    contrasena.value = '';
+    strengthIndicator.textContent = '';
+}
+
+function evaluarFortaleza(password) {
+    let strength = "Débil";
+    let strongRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\\$%\\^&\\*])(?=.{12,})");
+    let mediumRegex = new RegExp("^(((?=.*[a-z])(?=.*[A-Z]))|((?=.*[a-z])(?=.*[0-9]))|((?=.*[A-Z])(?=.*[0-9])))(?=.{8,})");
+
+    if (strongRegex.test(password)) {
+        strength = "Fuerte";
+    } else if (mediumRegex.test(password)) {
+        strength = "Media";
+    }
+
+    strengthIndicator.textContent = `Fortaleza: ${strength}`;
 }
 
 //HW: add symbols, add a button to clean the code after code has been generated, strong weak good password detector  
