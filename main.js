@@ -53,5 +53,3 @@ function evaluarFortaleza(password) {
 
     strengthIndicator.textContent = `Fortaleza: ${strength}`;
 }
-
-//HW: add symbols, add a button to clean the code after code has been generated, strong weak good password detector  
